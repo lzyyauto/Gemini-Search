@@ -1,0 +1,9 @@
+services:
+  gemini-search:
+    image: lzyyauto/gemini-search:latest
+    container_name: GeminiSearch
+    ports:
+      - "3000:3000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - NODE_ENV=production
