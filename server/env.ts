@@ -9,19 +9,16 @@ const envPath = path.resolve(__dirname, "../.env");
 export function setupEnvironment() {
   const result = dotenv.config({ path: envPath });
   if (result.error) {
-    throw new Error(
-      `Failed to load .env file from ${envPath}: ${result.error.message}`
-    );
+    console.warn(`Warning: Failed to load .env file from ${envPath}: ${result.error.message}`);
   }
 
-  if (!process.env.GOOGLE_API_KEY) {
-    throw new Error(
-      "GOOGLE_API_KEY environment variable must be set in .env file"
-    );
+  const googleApiKey = process.env.GOOGLE_API_KEY;
+  if (!googleApiKey) {
+    console.warn("Warning: GOOGLE_API_KEY environment variable is not set.");
   }
 
   return {
-    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+    GOOGLE_API_KEY: googleApiKey || "",
     NODE_ENV: process.env.NODE_ENV || "development",
   };
 }
