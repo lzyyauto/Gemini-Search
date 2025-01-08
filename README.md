@@ -81,6 +81,11 @@ Created by [@ammaar](https://x.com/ammaar)
 - The `.gitignore` file is configured to exclude sensitive files
 - If you fork this repository, make sure to use your own API keys
 
+## Docker Setup
+
+- Enter your GOOGLE_API_KEY in `docker-compose.yml`
+- `docker-compose up -d`
+
 ## License
 
 MIT License - feel free to use this code for your own projects!
